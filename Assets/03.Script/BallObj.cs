@@ -13,10 +13,7 @@ public class BallObj : MonoBehaviour
 
     private void Awake()
     {
-        //_rank = Random.Range(1, 6);
-        _rank = 1;
         InitSetData();
-        gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = RuleManager._instance._balls[_rank - 1];
     }
     private void Update()
     {
@@ -26,7 +23,7 @@ public class BallObj : MonoBehaviour
         }
     }
 
-    void InitSetData()
+    public void InitSetData()
     {
         gameObject.transform.localScale = Vector3.one * _rank;
     }
@@ -56,8 +53,17 @@ public class BallObj : MonoBehaviour
                 _isGrowing = true;
                 _rank++;
                 GameObject.Find("SoundManager").GetComponent<SoundManager>().SfxPlay(SoundManager.Sfx.RankUp);
-                gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = RuleManager._instance._balls[_rank - 1];
                 RuleManager._instance._score += 10 * _rank;
+
+                Transform t = transform;
+                GameObject go = Instantiate(RuleManager._instance._balls[_rank - 1]);
+                go.transform.localScale = Vector3.one;
+                BallObj ball = go.GetComponent<BallObj>();
+                ball._rank = _rank;
+                ball.InitSetData();
+                go.transform.position = transform.position;
+
+                Destroy(gameObject);
             }
         }
     }
@@ -91,4 +97,5 @@ public class BallObj : MonoBehaviour
         effect.transform.localScale = transform.localScale;
         effect.Play();
     }
+
 }

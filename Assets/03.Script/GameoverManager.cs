@@ -15,6 +15,7 @@ public class GameoverManager : MonoBehaviour
         gameover.SetActive(true);
         //일시정지
         Time.timeScale = 0;
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().SfxPlay(SoundManager.Sfx.GameOver);
 
         float s = RuleManager._instance._score;
         score.text = s.ToString();
@@ -56,6 +57,7 @@ public class GameoverManager : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1;
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().SfxPlay(SoundManager.Sfx.Button);
         SceneManager.LoadScene(0);
     }
 }

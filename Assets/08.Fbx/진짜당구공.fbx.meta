@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 920ba9b6e25525c48a7da68253a957ea
+guid: 7d0d306fc36c5af4f95efd9edd0f5214
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: VolleyBallBlue
-    second: {fileID: 2100000, guid: 195561cd35ae9074d84a506cce46e40c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: VolleyBallYellow
-    second: {fileID: 2100000, guid: c2f6fa4312dbc7442a0274225c030580, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -45,7 +35,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 150
+    globalScale: 100
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -98,7 +88,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1.5
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

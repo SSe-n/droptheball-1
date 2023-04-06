@@ -27,8 +27,6 @@ public class SoundManager : MonoBehaviour
 
     public void SfxPlay(Sfx type)
     {
-        Debug.Log("노래");
-
         switch (type)
         {
             case Sfx.Button:
@@ -54,7 +52,6 @@ public class SoundManager : MonoBehaviour
                 break;
 
         }
-        Debug.Log("노래1");
 
         sfxPlayer[sfxCursor].Play();
         sfxCursor = (sfxCursor + 1) % sfxPlayer.Length;

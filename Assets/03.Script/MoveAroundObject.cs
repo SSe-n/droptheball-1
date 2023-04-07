@@ -16,7 +16,7 @@ public class MoveAroundObject : MonoBehaviour
 
     void Update()
     {  
-        if (Input.touchCount > 0) // 터치 입력이 있을 경우
+        if (Input.touchCount > 0 && Time.timeScale != 0) // 터치 입력이 있을 경우
         {
             Touch touch = Input.GetTouch(0); // 첫 번째 터치 입력
             if (touch.phase == TouchPhase.Moved) // 터치가 움직였을 때

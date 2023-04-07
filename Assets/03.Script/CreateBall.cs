@@ -25,7 +25,7 @@ public class CreateBall : MonoBehaviour
     void Update()
     {
         _time += Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && _time >= RuleManager._reloadTime)
+        if (Input.GetMouseButtonDown(0) && _time >= RuleManager._reloadTime && Time.timeScale != 0)
         {
             ReadyBall();
         }

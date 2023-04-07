@@ -9,7 +9,7 @@ public class BallObj : MonoBehaviour
     bool _isGrowing;
     float _time;
     bool _isTouch;
-    float _growSpeed = 1;
+    //float _growSpeed = 1;
 
     private void Awake()
     {
@@ -23,8 +23,13 @@ public class BallObj : MonoBehaviour
         }
     }
 
-    public void InitSetData()
+    public void InitSetData(bool upgrade = false)
     {
+        if (upgrade)
+        {
+            _isGrowing = true;
+            return;
+        }
         gameObject.transform.localScale = Vector3.one * _rank;
     }
 
@@ -60,7 +65,7 @@ public class BallObj : MonoBehaviour
                 go.transform.localScale = Vector3.one;
                 BallObj ball = go.GetComponent<BallObj>();
                 ball._rank = _rank;
-                ball.InitSetData();
+                ball.InitSetData(true);
                 go.transform.position = transform.position;
 
                 Destroy(gameObject);

@@ -10,6 +10,7 @@ public class GameoverManager : MonoBehaviour
     public GameObject gameover;
     public TextMeshProUGUI score;
     public TextMeshProUGUI coin;
+    public GameObject highscore;
     private void OnCollisionEnter(Collision collision)
     {
         gameover.SetActive(true);
@@ -29,14 +30,21 @@ public class GameoverManager : MonoBehaviour
         if (PlayerPrefs.HasKey("HighScore"))
         {
             int hs = PlayerPrefs.GetInt("HighScore");
+            Debug.Log("high score : " + hs);
             if (s > hs)
             {
                 PlayerPrefs.SetInt("HighScore", (int)s);
+                gameover.GetComponent<Animator>().SetTrigger("highScore");
+            }
+            else
+            {
+                highscore.SetActive(false);
             }
         }
         else
         {
             PlayerPrefs.SetInt("HighScore", (int)s);
+            gameover.GetComponent<Animator>().SetTrigger("highScore");
         }
         #endregion
 
@@ -58,6 +66,6 @@ public class GameoverManager : MonoBehaviour
     {
         Time.timeScale = 1;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().SfxPlay(SoundManager.Sfx.Button);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

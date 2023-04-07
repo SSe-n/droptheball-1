@@ -16,17 +16,20 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
 
     public void SfxPlay(Sfx type)
     {
+        //Debug.Log("노래");
+
         switch (type)
         {
             case Sfx.Button:
@@ -52,8 +55,32 @@ public class SoundManager : MonoBehaviour
                 break;
 
         }
+        //Debug.Log("노래1");
 
         sfxPlayer[sfxCursor].Play();
         sfxCursor = (sfxCursor + 1) % sfxPlayer.Length;
     }
+    public void BgmOn()
+    {
+        bgmPlayer.mute = false;
+    }
+    public void BgmOff()
+    {
+        bgmPlayer.mute = true;
+    }
+    public void SfxOn()
+    {
+        sfxCursor = (sfxCursor + 1) % sfxPlayer.Length;
+        sfxPlayer[0].mute = false;
+        sfxPlayer[1].mute = false;
+        sfxPlayer[2].mute = false;
+    }
+    public void SfxOff()
+    {
+        sfxCursor = (sfxCursor + 1) % sfxPlayer.Length;
+        sfxPlayer[0].mute = true;
+        sfxPlayer[1].mute = true;
+        sfxPlayer[2].mute = true;
+    }
+
 }
